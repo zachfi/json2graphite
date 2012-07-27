@@ -25,11 +25,11 @@ end
 
 def run
   body = ''
-  Timeout.timeout(1) do
+  #Timeout.timeout(10) do
     body += STDIN.read
     hash = JSON.parse(body)
     data = to_graphite(hash)
-  end
+  #end
 end
 
 run()
