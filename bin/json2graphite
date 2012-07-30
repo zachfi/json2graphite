@@ -3,7 +3,9 @@
 require 'json'
 require 'timeout'
 require 'pp'
+#require 'sinatra'
 
+# Process a hash tree and return graphite format
 def walk_the_forrest (obj=self, path=[], &blk)
   obj.each do |key,value|
     case value
@@ -15,6 +17,7 @@ def walk_the_forrest (obj=self, path=[], &blk)
   end
 end
 
+# handle the formatting
 def to_graphite (hash)
   data = {}
   now = Time.now.to_i
@@ -33,4 +36,11 @@ def run
 end
 
 run()
+
+#post "/upload" do
+#  request.body.rewind  # in case someone already read it
+#  hash = JSON.parse request.body.read
+#  data = to_graphite(hash)
+#end
+
 
