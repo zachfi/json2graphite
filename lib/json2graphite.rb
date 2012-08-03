@@ -1,5 +1,4 @@
 
-
 module Json2Graphite
   module_function
 
