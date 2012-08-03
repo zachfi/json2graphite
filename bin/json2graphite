@@ -2,15 +2,12 @@
 
 require 'json'
 require 'timeout'
-require 'pp'
 
 def run
   body = ''
-  #Timeout.timeout(10) do
-    body += STDIN.read
-    hash = JSON.parse(body)
-    data = to_graphite(hash)
-  #end
+  body += STDIN.read
+  hash = JSON.parse(body)
+  data = to_graphite(hash)
 end
 
 run()
