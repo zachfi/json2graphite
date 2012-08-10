@@ -1,7 +1,7 @@
 Gem::Specification.new do |gem|
 
   gem.name    = 'json2graphite'
-  gem.version = '0.0.1'
+  gem.version = '0.0.3'
   gem.date    = Date.today.to_s
 
   gem.summary     = "Convert json hash tree to graphite format"
