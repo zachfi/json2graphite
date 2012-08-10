@@ -2,6 +2,7 @@
 
 require 'json'
 require 'timeout'
+require 'json2graphite'
 
 def run
   body = ''
