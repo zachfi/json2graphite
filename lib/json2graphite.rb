@@ -27,7 +27,6 @@ module Json2Graphite
     data = []
     walk_the_forrest(hash) {|target, value|
       data << { :target => target, :value => value, :time => time }
-      #data << "#{target} #{value} #{time}"
     }
     data
   end
