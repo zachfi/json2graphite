@@ -9,7 +9,7 @@ def run
   body += STDIN.read
   hash = JSON.parse(body)
   data = Json2Graphite.to_graphite(hash)
+  puts data.join("\n")
 end
 
 run()
-
