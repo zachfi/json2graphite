@@ -1,7 +1,9 @@
 module Json2Graphite
   module_function
 
-  # DOCUMENT THIS!!!
+  # basically reaches into a hash tree and grabs the end value, joining the
+  # keys along the way returning the block.
+
   def walk_the_forrest (obj=self, path=[], &blk)
     obj.each do |key,value|
       case value
