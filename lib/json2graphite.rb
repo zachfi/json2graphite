@@ -1,4 +1,3 @@
-
 module Json2Graphite
   module_function
 
@@ -18,10 +17,12 @@ module Json2Graphite
   # outputs to STDOUT.  Takes optional time argument, defaulting to now.
 
   def to_graphite (hash, time=Time.now.to_i)
+    data = []
     raise "Hash was not received" unless hash.is_a? Hash
     walk_the_forrest(hash) {|target, value|
-      puts "#{target} #{value} #{time}"
+      data << "#{target} #{value} #{time}"
     }
+    data
   end
 
   # Return an array of hashes, each hash a single graphite target, value, and time
