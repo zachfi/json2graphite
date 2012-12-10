@@ -23,13 +23,8 @@ module Json2Graphite
   end
 
   # For backward compatibility with other things
-  def to_graphite(hash, time = Time.now.to_i)
-    dump(hash, time)
-  end
-
-  def get_graphite(hash, time = Time.now.to_i)
-    dump_as_hash(hash, time)
-  end
+  alias_method :to_graphite, :dump
+  alias_method :get_graphite, :dump_as_hash
 
   # DOCUMENT THIS!!!
   def walk_the_forrest (obj=self, path=[], &blk)
