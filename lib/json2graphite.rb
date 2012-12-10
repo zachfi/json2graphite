@@ -1,40 +1,47 @@
 module Json2Graphite
   module_function
 
-  # basically reaches into a hash tree and grabs the end value, joining the
-  # keys along the way returning the block.
+  # Converts a hash of hashes into dot notaion used by graphite targets. Takes
+  # optional time argument, defaulting to now.
 
+  def dump(hash, time = Time.now.to_i)
+    data = []
+    raise "Hash was not received" unless hash.is_a? Hash
+    walk_the_forrest(hash) do |target, value|
+      data << "#{target} #{value} #{time}"
+    end
+    data
+  end
+
+  def dump_as_hash(hash, time = Time.now.to_i)
+    data = []
+    raise "Hash was not received" unless hash.is_a? Hash
+    walk_the_forrest(hash) do |target, value|
+      data << { :target => target, :value => value, :time => time }
+    end
+    data
+  end
+
+  # For backward compatibility with other things
+  alias_method :to_graphite, :dump
+  alias_method :get_graphite, :dump_as_hash
+
+  # DOCUMENT THIS!!!
   def walk_the_forrest (obj=self, path=[], &blk)
     obj.each do |key,value|
       case value
       when Hash
-        walk_the_forrest(value, [*path, key], &blk)
+        walk_the_forrest(value, [key, *path].reverse, &blk)
       else
-        blk.call("#{[*path, key].join('.')}",value)
+        blk.call("#{path.join('.')}.#{key}",value)
       end
     end
   end
+end
 
-  # Converts a hash of hashes into dot notaion used by graphite targets and
-  # outputs to STDOUT.  Takes optional time argument, defaulting to now.
+class Hash
 
-  def to_graphite (hash, time=Time.now.to_i)
-    data = []
-    raise "Hash was not received" unless hash.is_a? Hash
-    walk_the_forrest(hash) {|target, value|
-      data << "#{target} #{value} #{time}"
-    }
-    data
+  def to_graphite
+    Json2Graphite.dump(self)
   end
-
-  # Return an array of hashes, each hash a single graphite target, value, and time
-  def get_graphite (hash, time=Time.now.to_i)
-    raise "Hash was not received" unless hash.is_a? Hash
-    data = []
-    walk_the_forrest(hash) {|target, value|
-      data << { :target => target, :value => value, :time => time }
-    }
-    data
-  end
-
 end

@@ -1,0 +1,138 @@
+---
+munin.net.puppetlabs.ops.yam2g:
+  vmstat:
+    sleep: '0'
+    wait: '0'
+  threads:
+    threads: '86'
+  open_files:
+    max: '101209'
+    used: '672'
+  df:
+    _dev: '0.0197528523118738'
+    _dev_shm: '0'
+    _lib_init_rw: '0'
+    _dev_mapper_squeeze__templatizer_root: '1.41471971970302'
+    _dev_sda1: '4.74741466093164'
+  memory:
+    apps: '103915520'
+    buffers: '116862976'
+    vmalloc_used: '278581248'
+    page_tables: '2977792'
+    swap_cache: '0'
+    inactive: '98942976'
+    slab: '21618688'
+    free: '664956928'
+    committed: '186675200'
+    swap: '0'
+    cached: '137297920'
+    active: '247664640'
+    mapped: '14876672'
+  postfix_mailvolume:
+    volume: '351003'
+  irqstats:
+    iTHR: '0'
+    iRES: '0'
+    iLOC: '54931384'
+    iNMI: '0'
+    i14: '0'
+    i15: '57'
+    i6: '2'
+    iMIS: '0'
+    iTLB: '0'
+    iPMI: '0'
+    i7: '0'
+    i8: '1'
+    iCAL: '0'
+    i18: '6717975'
+    i9: '0'
+    iERR: '0'
+    iMCP: '1471'
+    iMCE: '0'
+    iSPU: '0'
+    iPND: '0'
+    i0: '1514'
+    iTRM: '0'
+    i1: '8'
+    i12: '107'
+  if_eth0:
+    down: '489082056'
+    up: '472106222'
+  df_inode:
+    _dev: '1'
+    _dev_shm: '1'
+    _lib_init_rw: '1'
+    _dev_mapper_squeeze__templatizer_root: '1'
+    _dev_sda1: '1'
+  puppet_agent_memory: {}
+  iostat:
+    dev8_0_write: '4258848'
+    dev8_0_read: '260904'
+  postfix_mailqueue:
+    deferred: '0'
+    corrupt: '0'
+    maildrop: '0'
+    hold: '0'
+    incoming: '0'
+    active: '0'
+  interrupts:
+    intr: '61652453'
+    ctx: '117807175'
+  users:
+    X: '0'
+    tty: '0'
+    pts: '2'
+    other: '0'
+    pty: '0'
+  uptime:
+    uptime: '5.11'
+  swap:
+    swap_out: '0'
+    swap_in: '0'
+  proc_pri:
+    high: '3'
+    low: '1'
+    locked: '0'
+  netstat:
+    failed: '22'
+    established: '4'
+    resets: '2'
+    passive: '7360'
+    active: '801321'
+  iostat_ios:
+    dev8_0_rtime: '0'
+    dev8_0_wtime: '0.130952380952381'
+  forks:
+    forks: '1407514'
+  entropy:
+    entropy: '128'
+  cpu:
+    idle: '43723318'
+    system: '98912'
+    iowait: '33813'
+    nice: '0'
+    steal: '0'
+    softirq: '7073'
+    irq: '2636'
+    user: '251427'
+  processes:
+    sleeping: '76'
+    paging: '0'
+    stopped: '0'
+    zombie: '0'
+    dead: '0'
+    runnable: '1'
+    uninterruptible: '0'
+    processes: '77'
+  open_inodes:
+    max: '7212'
+    used: '7125'
+  puppet_runs:
+    run_time: '0'
+  postfix_mailstats:
+    delivered: '196'
+  load:
+    load: '0.00'
+  if_err_eth0:
+    rcvd: '0'
+    trans: '0'
