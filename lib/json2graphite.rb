@@ -23,8 +23,8 @@ module Json2Graphite
   end
 
   # For backward compatibility with other things
-  alias_method :to_graphite, :dump
-  alias_method :get_graphite, :dump_as_hash
+  instance_eval { alias :to_graphite :dump }
+  instance_eval { alias :get_graphite :dump_as_hash }
 
   # DOCUMENT THIS!!!
   def walk_the_forrest (obj=self, path=[], &blk)

@@ -20,4 +20,10 @@ describe 'Json2Graphite' do
       Json2Graphite.dump(hash, time).sort.should == array.sort
     end
   end
+
+  describe 'aliased method to_graphite' do
+    it 'should output an array of graphite dot notated strings' do
+      Json2Graphite.to_graphite(hash, time).sort.should == array.sort
+    end
+  end
 end
